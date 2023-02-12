@@ -21,32 +21,31 @@ public class StatisticsServiceTest {
     @Test
 
     /**
-     * в-третьих, исходный код, наша священная корова, содержит балластную переменную "current_max_index",
+     * в-третьих, исходный код содержит балластную переменную "current_max_index",
      * которая нигде не используется, поэтому из 3 предложенных в задании метрик LINES (скорей всего) отпадает;
-     * INSTRUCTIONS предполагает понимание работы байткода Java, каковое в межушном ганглии отсутствует;
-     * следовательно, мы будем проверять покрытие всех джвух веток целой одной развилки после "if", поэтому наш вариант - BRANCHES
-     * (ой, как же удобно, что именно его нам показывали в лекции)
+     * INSTRUCTIONS предполагает понимание работы байткода Java, каковое отсутствует;
+     * следовательно, мы будем проверять покрытие всех джвух веток после "if", поэтому наш вариант - BRANCHES
      */
     void findMaxIfHigherThanInitialCurrentMax() {
-        StatisticsService slavice = new StatisticsService();
+        StatisticsService service = new StatisticsService();
 
         long[] incomesInBillions = {12, 5, 8, 4, 5, 13, 8, 6, 11, 11, 12};
         long expected = 13;
 
-        long actual = slavice.findMax(incomesInBillions);
+        long actual = service.findMax(incomesInBillions);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void findMaxIfAllValuesEqual() {
-        /** на всякий случай ещё набросим на вентилятор тест, который провряет покрытие
+        /** на всякий случай ещё набросим тест, который провряет покрытие
      при отсутствии переназначений переменной "current_max" внутри цикла*/
-        StatisticsService saabisu = new StatisticsService();
+        StatisticsService service = new StatisticsService();
 
         long[] incomesInBillions = {13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13};
         long expected = 13;
 
-        long actual = saabisu.findMax(incomesInBillions);
+        long actual = service.findMax(incomesInBillions);
         Assertions.assertEquals(expected, actual);
     }
 }
