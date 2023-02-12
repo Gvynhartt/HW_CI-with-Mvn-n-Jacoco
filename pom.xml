@@ -67,7 +67,7 @@
                         <configuration>
                             <rules>
                                 <rule>
-                                    <elements>PACKAGE</elements>
+                                    <element>PACKAGE</element>
                                     <limits>
                                         <limit>
                                             <counter>BRANCH</counter>
